@@ -1,8 +1,10 @@
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Fleet {
     public List<Ship> ships;
+    private final Color SHIP_COLOR = new Color(0x404040);
 
     public Fleet(int size){
         ships = new ArrayList<>();
@@ -30,21 +32,30 @@ public class Fleet {
 
     //==================================================================================================================
 
-    public void update(){
+    public void update(int maxAge){
         for(int i = 0 ; i < ships.size() ; i++){
+            if(ships.get(i).age++ > maxAge){
+                ships.remove(i);
+                i--;
+                continue;
+            }
             ships.get(i).update();
         }
     }
 
     //==================================================================================================================
 
-    public void draw(){
+    public void draw(boolean game){
         for(int i = 0 ; i < ships.size() ; i++){
-            if(ships.get(i).isTouchingMouse()){
-                ships.get(i).draw(StdDraw.RED);
+            if(game) {
+                if (ships.get(i).isTouchingMouse()) {
+                    ships.get(i).draw(StdDraw.RED);
+                } else {
+                    ships.get(i).draw(SHIP_COLOR);
+                }
             }
-            else{
-                ships.get(i).draw(StdDraw.BLACK);
+            else {
+                ships.get(i).draw(SHIP_COLOR);
             }
         }
     }

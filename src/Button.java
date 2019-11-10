@@ -89,15 +89,6 @@ public class Button {
         return false;
     }
 
-    public void update(){
-        if(checkClick()){
-            color = StdDraw.BOOK_BLUE;
-        }
-        else {
-            color = StdDraw.GRAY;
-        }
-    }
-
     //==================================================================================================================
 
     public void draw(){
