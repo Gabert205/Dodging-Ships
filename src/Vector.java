@@ -91,6 +91,23 @@ public class Vector {
         return Math.sqrt( Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2) );
     }
 
+
+    //region Differences and Distance
+    //returns the difference between a Vector and a point
+    public double difference(int x){
+        return Math.sqrt( Math.pow( this.x - x, 2) + Math.pow(this.y - 0, 2) + Math.pow(this.z - 0, 2) );
+    }
+
+    //returns the difference between a Vector and a point
+    public double difference(int x, int y){
+        return Math.sqrt( Math.pow( this.x - x, 2) + Math.pow(this.y - y, 2) + Math.pow(this.z - 0, 2) );
+    }
+
+    //returns the difference between a Vector and a point
+    public double difference(int x, int y, int z){
+        return Math.sqrt( Math.pow( this.x - x, 2) + Math.pow(this.y - y, 2) + Math.pow(this.z - z, 2) );
+    }
+
     //returns the difference between two Vectors
     public double difference(Vector other){
         return Math.sqrt( Math.pow( this.x - other.x, 2)+Math.pow(this.y - other.y , 2)+Math.pow(this.z - other.z , 2) );
@@ -99,6 +116,7 @@ public class Vector {
     public Vector differenceVector(Vector other){
         return new Vector(other.x - this.x, other.y - this.y, other.z - this.z);
     }
+    //endregion
 
     public Vector getInverse(){
         return  new Vector(-this.x, -this.y, -this.z);
@@ -111,7 +129,6 @@ public class Vector {
     }
 
     //only works on 2-D plains
-    // TODO: 10/28/2019 Make it work on 3-D plains
     public double getRadian(){
         double radian = Math.atan(y / x);
 

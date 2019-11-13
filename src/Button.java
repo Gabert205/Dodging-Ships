@@ -6,6 +6,8 @@ public class Button {
     private double posY;
     private double halfWidth;
     private double halfHeight;
+    private double outlineSize;
+    private Color outlineColor;
     private String text;
     private Font font;
     private Color textColor;
@@ -21,6 +23,8 @@ public class Button {
         font = new Font(Font.SANS_SERIF, Font.PLAIN, 12);
         this.textColor = StdDraw.BLACK;
         this.color = color;
+        outlineSize = .0075;
+        outlineColor = StdDraw.BLACK;
     }
 
     public Button(double posX, double posY, double halfWidth, double halfHeight, String text, Color color, String id) {
@@ -33,6 +37,8 @@ public class Button {
         font = new Font(Font.SANS_SERIF, Font.PLAIN, 12);
         this.textColor = StdDraw.BLACK;
         this.color = color;
+        outlineSize = .0075;
+        outlineColor = StdDraw.BLACK;
     }
 
     public Button(double posX, double posY, double halfWidth, double halfHeight,
@@ -46,6 +52,8 @@ public class Button {
         this.font = new Font(Font.SANS_SERIF, Font.PLAIN, 12);
         this.textColor = textColor;
         this.color = color;
+        outlineSize = .0075;
+        outlineColor = StdDraw.BLACK;
     }
 
     public Button(double posX, double posY, double halfWidth, double halfHeight,
@@ -59,6 +67,8 @@ public class Button {
         this.font = font;
         this.textColor = StdDraw.BLACK;
         this.color = color;
+        outlineSize = .0075;
+        outlineColor = StdDraw.BLACK;
     }
 
     public Button(double posX, double posY, double halfWidth, double halfHeight,
@@ -72,6 +82,23 @@ public class Button {
         this.font = font;
         this.textColor = textColor;
         this.color = color;
+        outlineSize = .0075;
+        outlineColor = StdDraw.BLACK;
+    }
+
+    public Button(double posX, double posY, double halfWidth, double halfHeight, double outlineSize, Color outlineColor,
+                  String text, Font font, Color textColor, Color color, String id) {
+        this.id = id;
+        this.posX = posX;
+        this.posY = posY;
+        this.halfWidth = halfWidth;
+        this.halfHeight = halfHeight;
+        this.text = text;
+        this.font = font;
+        this.textColor = textColor;
+        this.color = color;
+        this.outlineSize = outlineSize;
+        this.outlineColor = outlineColor;
     }
 
     //==================================================================================================================
@@ -97,8 +124,8 @@ public class Button {
         StdDraw.filledRectangle(posX, posY, halfWidth, halfHeight);
 
         //gives the button a outline (just for design)
-        StdDraw.setPenColor(StdDraw.BLACK);
-        StdDraw.setPenRadius(.0075);
+        StdDraw.setPenColor(outlineColor);
+        StdDraw.setPenRadius(outlineSize);
         StdDraw.rectangle(posX, posY, halfWidth, halfHeight);
 
         StdDraw.setPenColor(textColor);

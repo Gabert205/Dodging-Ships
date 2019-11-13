@@ -163,7 +163,7 @@ public class Screen {
             StdDraw.text(.5, .85, "Dodging Ships");
 
             StdDraw.setFont(SUBTITLE_FONT);
-            StdDraw.text(.5, .78, "Crazy Galaxy Studios");
+            //StdDraw.text(.5, .78, "Crazy Galaxy Studios");
         }
 
         if(score > 0){
